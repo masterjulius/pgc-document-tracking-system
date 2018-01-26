@@ -1,0 +1,78 @@
+{{#if autofillDatas}}
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$.each(['#department', '#division'], function(index, value) {
+				var $this = $(value),
+					data = $this.attr('data-json');
+					data = JSON.parse(data);
+				app.init_autocomplete_datas(data, value);
+			});
+		});
+	</script>
+
+	<div class="row">
+		
+		<div class="col s10 offset-s1 card">
+			
+			<form action="/employees/new/" method="post" class="col s12">
+				
+				<div class="row">
+
+					<div class="col s6 input-field">	
+						<input type="text" name="department" id="department" data-target="#departmentId" class="autocomplete" autofocus="autofocus" data-json="{{autofillDatas.departments}}">
+						<label for="department">Department*</label>
+					</div>
+					<!-- Hidden ID -->
+					<input type="hidden" id="departmentId" name="departmentId">
+
+					<div class="col s6 input-field">
+						<input type="text" name="division" id="division" data-target="#divisionId" class="autocomplete" data-json="{{autofillDatas.divisions}}">
+						<label for="division">Division*</label>
+					</div>
+					<!-- Hidden ID -->
+					<input type="hidden" id="divisionId" name="divisionId">
+
+				</div>
+
+				<div class="row">
+
+					<div class="col s4 input-field">
+						<input type="text" name="firstName" id="firstName" class="autocomplete" data-json="{{autofillDatas.firstNames}}">
+						<label for="firstName">First Name*</label>
+					</div>
+
+					<div class="col s4 input-field">
+						<input type="text" name="middleName" id="middleName" class="autocomplete" data-json="{{autofillDatas.middleNames}}">
+						<label for="middleName">Middle Name</label>
+					</div>
+
+					<div class="col s4 input-field">
+						<input type="text" name="lastName" id="lastName" class="autocomplete" data-json="{{autofillDatas.middleNames}}">
+						<label for="lastName">Last Name*</label>
+					</div>
+
+				</div>
+
+				<div class="row">
+					<div class="col s12">
+						<p>
+							<input type="checkbox" name="newForm" class="filled-in" id="new-form" checked="checked" />
+							<label for="new-form">New Form</label>
+						</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col s12 input-field">
+						<button class="btn btn-large">save</button>
+					</div>	
+				</div>
+
+				</div>
+
+			</form>
+
+		</div>
+
+	</div>
+{{/if}}

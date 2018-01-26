@@ -1,0 +1,72 @@
+{{#if errors}}
+	{{#if departments}}
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var data = $('.dept-autocomplete').attr('data-json');
+				data = JSON.parse(data);
+				app.init_autocomplete_datas(data);
+			});
+		</script>
+
+		<div class="row">
+			
+			<div class="col s8 offset-s2">
+				
+				<form action="/divisions/{{targetUrl}}" method="post" class="col s12">
+					
+					<div class="row">
+
+						<div class="input-field">
+							<input type="text" id="department" name="departmentName" value="{{value.departmentName}}" class="autocomplete dept-autocomplete" data-target="#departmentId" autofocus="autofocus" data-json="{{departments}}">
+							<label for="department">Department*</label>
+							{{#if errors.departmentId}}
+								<p class="red-text">{{errors.departmentId.msg}}</p>
+							{{/if}}
+							</div>
+						<input type="hidden" name="departmentId" id="departmentId" value="{{value.departmentId}}">
+
+					{{#if formEdit}}
+						<input type="hidden" name="divisionId" id="divisionId" value="{{value.divisionId}}">	
+					{{/if}}	
+						<div class="input-field">
+							<input type="text" name="name" id="name" value="{{value.name}}" class="input-office-accronym validate">
+							<label for="name">Accronym*</label>
+							{{#if errors.name}}
+								<p class="red-text">{{errors.name.msg}}</p>
+							{{/if}}
+						</div>
+
+						<div class="input-field">
+							<input type="text" name="fullName" id="fullName" value="{{value.fullName}}" class="validate">
+							<label for="fullName">Complete Name*</label>
+							{{#if errors.fullName}}
+								<p class="red-text">{{errors.fullName.msg}}</p>
+							{{/if}}
+						</div>
+
+						<div class="input-field">
+							<textarea name="description" id="description" class="materialize-textarea">{{errors.description}}</textarea>
+							<label for="description">Description</label>
+							{{#if errors.description}}
+								<p class="red-text">{{errors.description.msg}}</p>
+							{{/if}}
+						</div>
+
+						<p>
+							<input type="checkbox" name="newForm" class="filled-in" id="new-form" checked="checked" />
+							<label for="new-form">New Form</label>
+						</p>
+
+						<div class="input-field">
+							<button class="btn btn-large">save</button>
+						</div>
+
+					</div>
+
+				</form>
+
+			</div>
+
+		</div>
+	{{/if}}	
+{{/if}}

@@ -1,0 +1,40 @@
+<div class="row">
+	
+	<div class="col s8 offset-s2">
+		
+		<form action="/departments/new/" method="post" class="col s12">
+			
+			<div class="row">
+
+				<div class="input-field">
+					<input type="text" name="name" id="name" value="{{value.name}}" class="input-office-accronym validate" autofocus="autofocus">
+					<label for="name">Accronym*</label>
+					{{#if errors.name}}
+						<p class="red-text">{{errors.name.msg}}</p>
+					{{/if}}
+				</div>
+
+				<div class="input-field">
+					<input type="text" name="fullName" id="fullName" value="{{value.fullName}}" class="validate">
+					<label for="fullName">Complete Name*</label>
+					{{#if errors.fullName}}
+						<p class="red-text">{{errors.fullName.msg}}</p>
+					{{/if}}
+				</div>
+
+				<div class="input-field">
+					<textarea name="description" id="description" class="materialize-textarea">{{value.description}}</textarea>
+					<label for="description">Description</label>
+				</div>
+
+				<div class="input-field">
+					<button class="btn btn-large">save</button>
+				</div>
+
+			</div>
+
+		</form>
+
+	</div>
+
+</div>

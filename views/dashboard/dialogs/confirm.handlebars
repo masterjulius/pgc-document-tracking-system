@@ -1,0 +1,39 @@
+{{#if dialogData}}
+<div class="row">
+	
+	<div class="col s12">
+		
+		<div class="row">
+			<div class="col s12 m6">
+				<div class="card blue-grey darken-1">
+					<div class="card-content white-text">
+						<span class="card-title">
+							{{#if dialogData.title}}
+								{{dialogData.title}}
+							{{else}}
+								Oops! Pause for a moment
+							{{/if}}
+						</span>
+						<p>
+							{{#if dialogData.msg}}
+								{{dialogData.msg}}
+							{{else}}
+								Are you sure you want to delete this?
+							{{/if}}
+						</p>
+					</div>
+					<div class="card-action">
+						<form action="{{dialogData.targetUrl}}" method="post">
+							<input type="hidden" name="_id" value="{{dialogData._id}}">
+							<input type="submit" name="confirmYes" value="YES" class="btn">
+							<input type="submit" name="confirmNo" value="NO" class="btn red">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+{{/if}}

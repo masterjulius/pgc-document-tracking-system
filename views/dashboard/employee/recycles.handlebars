@@ -1,0 +1,74 @@
+<div class="row">
+
+	<div class="nav-div">
+
+		<nav class="dashboard-nav">
+			<div class="nav-wrapper">
+				<a href="#!" class="">First</a>
+				&nbsp;
+				<a href="#!" class=""><i class="fa fa-chevron-right" aria-hidden="true"></i> Second</a>
+				&nbsp;
+				<a href="#!" class=""><i class="fa fa-chevron-right" aria-hidden="true"></i> Third</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down action-nav-link-group">
+					<li>
+						
+						<form action="/employees/recycles/search/" method="post">
+							<div class="row">
+								<div class="col s12">
+									<div class="input-field inline">
+										<input type="text" name="search" id="search" class="validate" placeholder="Look for..." autofocus="autofocus">
+									</div>
+								</div>
+							</div>
+						</form>
+
+					</li>
+					<li><a href="/employees/logs/"><i class="fa fa-list-alt" aria-hidden="true"></i> LOGS</a></li>
+					<li><a href="/employees/recycles/"><i class="fa fa-trash" aria-hidden="true"></i> RECYCLES</a></li>
+				</ul>
+			</div>
+		</nav>
+
+	</div>
+
+	<div class="dashboard-content">
+
+		<div class="data-div">
+			
+			<table class="highlight">
+				<thead>
+					<tr>
+						<th>Full Name</th>
+						<th>Department</th>
+						<th>Division</th>
+						<th>Date Removed</th>
+						<th>Options</th>
+					</tr>
+				</thead>
+
+				<tbody>
+				{{#each data}}
+					<tr>
+						<td>{{lastName}}, {{firstName}} {{middleName}}</td>
+						<td>{{department.name}} &mdash; {{department.fullName}}</td>
+						<td>{{division.fullName}}</td>
+						<td>{{updatedDate}}</td>
+						<td><a href="/employees/restore/{{_id}}" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Restore"><i class="fa fa-refresh" aria-hidden="true"></i></a></td>
+					</tr>
+				{{else}}
+					<tr>
+						<td>No Data Available...</td>
+						<td>No Data Available...</td>
+						<td>No Data Available...</td>
+						<td>No Data Available...</td>
+						<td>No Options Available...</td>
+					</tr>
+				{{/each}}	
+				</tbody>
+			</table>
+
+		</div>
+
+	</div>
+
+</div>

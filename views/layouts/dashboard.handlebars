@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>
+	{{#if pageTitle}}
+		{{pageTitle}} &mdash; PGC Document Tracking System
+	{{else}}
+		Dashboard &mdash; PGC Document Tracking System
+	{{/if}}
+	</title>
+	<link rel="stylesheet" type="text/css" href="/virtualpath/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/virtualpath/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="/virtualpath/css/style.min.css">
+
+	<!-- Asynch -->
+	<script type="text/javascript" src="/virtualpath/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/virtualpath/js/materialize-modified.js"></script>
+	<script type="text/javascript" src="/virtualpath/js/main.js"></script>
+</head>
+<body>
+	
+	<ul id="slide-out" class="side-nav fixed dashboard-sidebar">
+		<li><div class="user-view">
+			<div class="background">
+				<img src="/virtualpath/img/wallpapers/office.jpg">
+			</div>
+			<a href="#!user"><img class="circle" src="/virtualpath/img/icons/boy.svg"></a>
+			<a href="#!name"><span class="white-text name">{{#if user}}{{user.username}}{{/if}}</span></a>
+			<a href="#!email"><span class="white-text email">Change this afterwards!</span></a>
+		</div></li>
+		<li><a href="/documents" class="waves-effect"><i class="fa fa-file-text" aria-hidden="true"></i> DOCUMENTS <span class="new badge red">2</span></a></li>
+		<li><a href="/tracks" class="waves-effect"><i class="fa fa-map-marker" aria-hidden="true"></i> TRACK</a></li>
+		<li><a href="/shelfs" class="waves-effect"><i class="fa fa-archive" aria-hidden="true"></i> ARCHIVES</a></li>
+		<li><a href="/messages" class="waves-effect"><i class="fa fa-commenting" aria-hidden="true"></i> MESSAGES <span class="new badge red">4</span></a></li>
+		<li><div class="divider"></div></li>
+		<li><a class="subheader">SET UP</a></li>
+		<li><a href="/departments" class="waves-effect"><i class="fa fa-building" aria-hidden="true"></i> DEPARTMENTS</a></li>
+		<li><a href="/divisions" class="waves-effect"><i class="fa fa-th-large" aria-hidden="true"></i> DIVISIONS</a></li>
+		<li><a href="/employees" class="waves-effect"><i class="fa fa-address-book" aria-hidden="true"></i> EMPLOYEES</a></li>
+		<li><a href="/users" class="waves-effect"><i class="fa fa-user" aria-hidden="true"></i> USERS</a></li>
+		<li><a href="/settings" class="waves-effect"><i class="fa fa-cog" aria-hidden="true"></i> SETTINGS</a></li>
+	</ul>
+
+	<main>{{{body}}}</main>
+
+</body>
+</html>

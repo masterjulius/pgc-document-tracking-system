@@ -1,0 +1,127 @@
+<div class="row">
+	
+	<nav class="nav-extended">
+		<div class="nav-wrapper">
+			<a href="" class="brand-logo"></a>
+			<ul class="right">
+				<li><a><i class="fa fa-cog" aria-hidden="true"></i></a></li>
+				<li><a><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a></li>
+			</ul>
+		</div>
+		<div class="nav-content">
+			<span class="nav-title"></span>
+			<a class="btn-floating btn-large halfway-fab waves-effect waves-light red left modal-trigger" href="#modal1"><i class="fa fa-plus" aria-hidden="true"></i></a>
+		</div>
+	</nav>
+
+	<div class="row">
+		<div class="col s12" id="document-types-field-preloader"></div>
+	</div>
+
+	<div class="row" id="document-types-field-settings">
+		
+		<div class="col s10 offset-s1">
+			
+			<ul class="collection" id="document-types-field-lists">
+				<li class="collection-item avatar">
+					<i class="circle fa fa-calendar" aria-hidden="true"></i>
+					<span class="title">Date</span>
+					<p>Current Date <br>
+						Second Line
+					</p>
+					<!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+				</li>
+				<li class="collection-item avatar">
+					<i class="circle green fa fa-list-alt" aria-hidden="true"></i>
+					<span class="title">Sender</span>
+					<p>First Line <br>
+						Second Line
+					</p>
+				</li>
+				<li class="collection-item avatar">
+					<i class="circle red fa fa-font" aria-hidden="true"></i>
+					<span class="title">Text Box</span>
+					<p>First Line <br>
+						Second Line
+					</p>
+					<!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+				</li>
+			</ul>
+
+		</div>
+
+	</div>
+
+</div>
+
+<!-- MODAL BOTTOM -->
+<div id="modal1" class="modal bottom-sheet">
+	<div class="modal-content">
+		<h5>New Document Field</h5>
+		<form action="" id="form-add-field">
+			<div class="row">
+				<div class="col s12 input-field">
+					<input type="text" name="name" id="name" class="validate">
+					<label for="name">Field Name</label>
+				</div>
+
+				<div class="col s12 input-field">
+					<input type="text" name="description" id="description" class="validate">
+					<label for="description">Description</label>
+				</div>
+
+				<div class="col s12 input-field">
+					<select id="inputType">
+						<option value="txtBox" disabled selected>&mdash; Choose your option &mdash;</option>
+						<option value="txtBox">Textbox</option>
+						<option value="longTxt">Large Text</option>
+						<option value="auto">Autocomplete</option>
+						<option value="drop">Dropdown</option>
+					</select>
+					<label>Select Field Type</label>
+				</div>
+
+				<div class="col s12 input-field">
+					
+					<select id="defaults">
+						<optgroup label="team 1">	
+							<option value="0" disabled selected>&mdash; Choose your option &mdash;</option>
+							<option value="currentDate">Date Today</option>
+							<option value="Y">Yes</option>
+							<option value="N">No</option>
+						</optgroup>
+						<optgroup label="team 2">	
+							<option value="custom">Custom</option>
+						</optgroup>
+					</select>	
+
+					<label>Select Field Type</label>
+
+				</div>
+
+				<div class="col s12 input-field">
+					
+					<select id="valueTable">
+						<option value="dept" disabled selected>&mdash; Choose your option &mdash;</option>
+						<option value="dept">Department</option>
+						<option value="div">Division</option>
+						<option value="emp">Employee</option>
+						<option value="otherGovAgencies">Other Government Agencies</option>
+					</select>
+					<label>Select Value Table</label>
+
+				</div>
+
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<a href="#!" id="btn-save-field" class="modal-action modal-close waves-effect waves-green btn blue">Save</a>
+	</div>
+</div>
+
+<!-- SCRIPTS -->
+<script type="text/javascript" src="/virtualpath/js/ajax.js"></script>
+<script type="text/javascript">
+	$('#btn-save-field').on('click', function(e){e.preventDefault();docTypeFields.save('new', '#document-types-field-lists', '#document-types-field-preloader')});
+</script>

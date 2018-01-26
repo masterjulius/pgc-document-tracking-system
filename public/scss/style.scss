@@ -1,0 +1,68 @@
+/** PGC Document Tracking System */
+header, main, footer {
+	padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+	header, main, footer {
+		padding-left: 0;
+	}
+}
+
+.dashboard-nav {
+	background-color: #3c3e41;
+	padding-left: 20px;
+	.action-nav-link-group {
+		li {
+			a {
+				color: #9ca1a8;
+				font-size: 0.80rem;
+				font-weight: bolder;
+				i {
+					color: #9ca1a8;
+					font-size: 1.50rem;
+				}
+				&:hover {
+					color: #eee;
+					i {
+						color: #25b7b4;
+					}
+				}
+			}
+		}
+	}
+}
+
+.dashboard-sidebar {
+	background-color: #3c3e41;
+	li {
+
+		a {
+			color: #9ca1a8;
+			i {
+				color: #9ca1a8;
+				font-size: 1.60rem;
+			}
+			&:hover {
+				color: #eee;
+				i {
+					color: #25b7b4;
+				}
+			}
+			&.subheader {
+				font-size: 0.75em;
+				color: #9ca1a8;
+			}
+		}
+
+	}
+
+}
+
+.dashboard-content {
+	padding: 20px;
+}
+
+.input-office-accronym {
+	text-transform: uppercase;
+}

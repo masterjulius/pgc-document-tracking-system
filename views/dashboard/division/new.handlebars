@@ -1,0 +1,56 @@
+{{#if departments}}
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var data = $('.dept-autocomplete').attr('data-json');
+			data = JSON.parse(data);
+			app.init_autocomplete_datas(data);
+		});
+	</script>
+
+	<div class="row">
+		
+		<div class="col s8 offset-s2">
+			
+			<form action="/divisions/new/" method="post" class="col s12">
+				
+				<div class="row">
+
+					<div class="input-field">
+						<input type="text" id="department" class="autocomplete dept-autocomplete" data-target="#departmentId" autofocus="autofocus" data-json="{{departments}}">
+						<label for="department">Department*</label>
+					</div>
+					<input type="hidden" name="departmentId" id="departmentId">
+
+					<div class="input-field">
+						<input type="text" name="name" id="name" class="input-office-accronym validate">
+						<label for="name">Accronym*</label>
+					</div>
+
+					<div class="input-field">
+						<input type="text" name="fullName" id="fullName" class="validate">
+						<label for="fullName">Complete Name*</label>
+					</div>
+
+					<div class="input-field">
+						<textarea name="description" id="description" class="materialize-textarea"></textarea>
+						<label for="description">Description</label>
+					</div>
+
+					<p>
+						<input type="checkbox" name="newForm" class="filled-in" id="new-form" checked="checked" />
+						<label for="new-form">New Form</label>
+					</p>
+
+					<div class="input-field">
+						<button class="btn btn-large">save</button>
+					</div>
+
+				</div>
+
+			</form>
+
+		</div>
+
+	</div>
+{{/if}}
